@@ -111,7 +111,8 @@ h2 { margin-bottom: 16px; font-size: clamp(30px, 3.3vw, 47px); line-height: 1.08
 .theme-ocean .theme-overlay i { background: #72d6df; }
 .theme-ocean .theme-overlay i:nth-last-child(2) { background: #f0a87d; }
 .theme-ocean .theme-overlay i:nth-last-child(1) { background: #f8f6ea; }
-.library-shot { width: min(86%, 900px); margin: 38px 0 0 auto; }
+.theme-coverage { max-width: 700px; margin: 27px 0 0 auto; padding: 16px 18px; border-left: 3px solid var(--accent); background: #eef5f0; color: var(--muted); font-size: 13px; line-height: 1.78; }
+.theme-coverage b { color: #29483d; }
 
 .guide-section { padding: 89px 8%; border-radius: 29px; background: #e8f0eb; }
 .guide-head { display: grid; grid-template-columns: 1fr .72fr; align-items: end; gap: 50px; margin-top: 20px; }
@@ -224,7 +225,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(10, 122, 99, .35
   .theme-gallery { grid-template-columns: 1fr 1fr; }
   .theme-tile:first-child { grid-column: 1 / -1; }
   .theme-tile { min-height: 270px; }
-  .library-shot { width: 100%; margin-top: 24px; }
   .guide-section, .activation-section, .faq { padding: 64px 7%; }
   .guide-steps { grid-template-columns: 1fr; gap: 0; }
   .guide-steps li, .guide-steps li:first-child { display: grid; grid-template-columns: 52px 1fr; gap: 0; padding: 24px 0; border-right: 0; border-bottom: 1px solid #cbd9d1; }
