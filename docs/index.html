@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WorkBuddy 主题工坊官方下载页：选择与设备匹配的安装包，查看版本说明并完成激活。">
+  <meta name="theme-color" content="#f6f7f3">
+  <title>WorkBuddy 主题工坊 · 官方下载</title>
+  <link rel="stylesheet" href="./assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#downloads">跳到下载区域</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="WorkBuddy 主题工坊下载页首页">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>WorkBuddy <b>主题工坊</b></span>
+    </a>
+    <nav aria-label="站内导航">
+      <a href="#downloads">下载</a>
+      <a href="#activate">激活与换机</a>
+      <a id="releaseLink" href="https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/latest" target="_blank" rel="noreferrer">发布说明</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span>Windows 与 Linux 正式发行</p>
+        <h1 id="heroTitle">让 WorkBuddy 的界面，<br>成为你的工作环境。</h1>
+        <p class="hero-lede">WorkBuddy 主题工坊是一款独立的本地界面个性化工具。下载后连接自己的 WorkBuddy 客户端，选择主题并一键应用。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#downloads">选择安装包 <span aria-hidden="true">↓</span></a>
+          <a class="button button-quiet" data-store-link href="https://wzyp.cn/shop/Z19S8R9C" target="_blank" rel="noreferrer">进入店铺 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="trust-line" aria-label="发行信息">
+          <span>独立第三方工具</span><span>不修改 WorkBuddy 安装目录</span><span>GitHub Releases 托管</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="主题工坊界面示意">
+        <div class="window-frame">
+          <div class="window-bar"><span></span><span></span><span></span><b>主题预览</b></div>
+          <div class="window-body">
+            <aside><div class="avatar"></div><i></i><i></i><i></i><i></i></aside>
+            <div class="canvas">
+              <div class="canvas-head"><small>正在使用</small><strong>云雾湖畔</strong><span>已同步</span></div>
+              <div class="scene"><div class="mist"></div><div class="mountain m1"></div><div class="mountain m2"></div><div class="lake"></div><div class="float-card"><b>低干扰 · 更专注</b><small>主题色与背景统一应用</small></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="release-strip" aria-live="polite">
+      <div><span class="status-dot"></span><strong id="syncStatus">正在同步 GitHub 最新正式版</strong></div>
+      <div class="release-meta"><b id="releaseVersion">v—</b><span id="releaseDate">正在读取发布日期</span></div>
+      <button type="button" data-copy-release>复制发布页链接</button>
+    </section>
+
+    <section class="download-section" id="downloads" aria-labelledby="downloadTitle">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span>选择与你设备匹配的版本</p><h2 id="downloadTitle">软件下载</h2></div>
+        <div class="device-pill"><span class="device-icon" aria-hidden="true"></span><span id="detectedPlatform">正在识别你的系统</span></div>
+      </div>
+
+      <div class="download-layout">
+        <article class="download-card primary-download" data-download="win-x64">
+          <div class="card-kicker"><span>推荐</span><span>Windows</span></div>
+          <h3>Windows x64</h3><p>适用于绝大多数 Intel 与 AMD 电脑。</p>
+          <div class="download-details"><span data-size>正在同步安装包</span><code data-version>—</code></div>
+          <a class="download-link" href="#downloads">下载 Windows 安装包 <span aria-hidden="true">↓</span></a>
+        </article>
+        <article class="download-card" data-download="win-arm64">
+          <div class="card-kicker"><span>Windows</span><span>ARM</span></div>
+          <h3>Windows ARM64</h3><p>适用于 ARM 架构的 Windows 设备。</p>
+          <div class="download-details"><span data-size>正在同步安装包</span><code data-version>—</code></div>
+          <a class="download-link" href="#downloads">下载 Windows 安装包 <span aria-hidden="true">↓</span></a>
+        </article>
+      </div>
+
+      <div class="platform-divider"><span>Linux</span><p>选择 AppImage 或与你的发行版匹配的 DEB 包</p></div>
+      <div class="linux-grid">
+        <article class="download-card compact" data-download="linux-x64-appimage"><div><span class="os-label">Linux x64</span><h3>AppImage</h3><p data-size>正在同步安装包</p></div><a class="download-link" href="#downloads">选择此版本 <span aria-hidden="true">↓</span></a><code data-version>—</code></article>
+        <article class="download-card compact" data-download="linux-x64-deb"><div><span class="os-label">Linux x64</span><h3>DEB</h3><p data-size>正在同步安装包</p></div><a class="download-link" href="#downloads">选择此版本 <span aria-hidden="true">↓</span></a><code data-version>—</code></article>
+        <article class="download-card compact" data-download="linux-arm64-appimage"><div><span class="os-label">Linux ARM64</span><h3>AppImage</h3><p data-size>正在同步安装包</p></div><a class="download-link" href="#downloads">选择此版本 <span aria-hidden="true">↓</span></a><code data-version>—</code></article>
+        <article class="download-card compact" data-download="linux-arm64-deb"><div><span class="os-label">Linux ARM64</span><h3>DEB</h3><p data-size>正在同步安装包</p></div><a class="download-link" href="#downloads">选择此版本 <span aria-hidden="true">↓</span></a><code data-version>—</code></article>
+      </div>
+      <aside class="availability-note"><span aria-hidden="true">i</span><p><b>macOS 版本暂未发布。</b> 页面只展示已上传至 GitHub Releases 的正式安装包；请不要从非官方镜像下载。</p></aside>
+    </section>
+
+    <section class="activation-section" id="activate" aria-labelledby="activationTitle">
+      <div class="activation-visual"><span class="small-label">LICENSE</span><div class="activation-code"><i></i><i></i><i></i><i></i><i></i></div><div class="activation-lock"><span></span></div></div>
+      <div class="activation-copy"><p class="eyebrow"><span></span>购买、激活与换机</p><h2 id="activationTitle">下载和授权，彼此独立。</h2><p>安装包可公开下载；主题应用功能需要激活。这样既能让你先确认软件能运行，也能让授权和设备管理保持清晰。</p><ol class="steps"><li><span>01</span><div><b>在店铺完成购买</b><small id="activationNotice">店铺商品正在配置中。</small></div></li><li><span>02</span><div><b>在软件设置中输入激活码</b><small>勾选协议后即可激活，软件只传输匿名设备摘要。</small></div></li><li><span>03</span><div><b>换机前先解绑旧设备</b><small>释放席位后，在新设备输入相同激活码即可继续使用。</small></div></li></ol>
+        <a class="button button-primary" data-store-link href="https://wzyp.cn/shop/Z19S8R9C" target="_blank" rel="noreferrer">进入店铺 <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faqTitle"><div><p class="eyebrow"><span></span>安装前须知</p><h2 id="faqTitle">少一点猜测，多一点确定。</h2></div><dl><div><dt>这是 WorkBuddy 官方软件吗？</dt><dd>不是。本工具为独立第三方界面个性化软件，不代表 WorkBuddy 及其关联方。</dd></div><div><dt>安装包安全吗？</dt><dd>下载按钮直达公开 GitHub Releases。正式包的更新清单包含 SHA-512 完整性信息，可在发布页复核。</dd></div><div><dt>软件能自动更新吗？</dt><dd>Windows 与 Linux AppImage 会在软件内提示更新；DEB 由系统包管理器维护。macOS 版本发布前不作承诺。</dd></div></dl></section>
+  </main>
+
+  <footer><div><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>WorkBuddy <b>主题工坊</b></span></a><p>一个更适合长期工作的 WorkBuddy 界面。</p></div><div><a id="footerRelease" href="https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/latest" target="_blank" rel="noreferrer">全部发布版本</a><a data-store-link href="https://wzyp.cn/shop/Z19S8R9C" target="_blank" rel="noreferrer">店铺与授权</a></div></footer>
+  <script src="./assets/site-config.js"></script><script src="./assets/site.js"></script>
+</body>
+</html>
