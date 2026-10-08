@@ -137,7 +137,32 @@ const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector
     });
   }
 
+  function initializeScrollNavigation() {
+    const links = $$('[data-scroll-link]');
+    const targets = links
+      .map((link) => ({ link, target: document.querySelector(link.getAttribute("href")) }))
+      .filter(({ target }) => target);
+    if (!targets.length) return;
+
+    const setActive = (id) => {
+      targets.forEach(({ link, target }) => link.classList.toggle("active", target.id === id));
+    };
+    targets.forEach(({ link, target }) => {
+      link.addEventListener("click", () => setActive(target.id));
+    });
+    if (!("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    }, { rootMargin: "-28% 0px -61% 0px", threshold: [0.05, 0.2, 0.5] });
+    targets.forEach(({ target }) => observer.observe(target));
+  }
+
   setStoreLinks();
   initializeInteractions();
+  initializeScrollNavigation();
   Promise.all([loadRelease(), detectPlatform()]);
 })();
