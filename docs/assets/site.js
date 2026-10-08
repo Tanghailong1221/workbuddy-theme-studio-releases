@@ -2,10 +2,19 @@
   "use strict";
 
   const config = window.WBTS_DOWNLOAD_CONFIG;
-const $ = (selector, parent = document) => parent.querySelector(selector);
-const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
+  const $ = (selector, parent = document) => parent.querySelector(selector);
+  const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
   const latestApi = `https://api.github.com/repos/${config.repository}/releases/latest`;
   const releaseBase = `https://github.com/${config.repository}/releases/latest`;
+  const downloadLabels = {
+    "win-x64": "Windows x64 安装包",
+    "win-arm64": "Windows ARM64 安装包",
+    "linux-x64-appimage": "Linux x64 AppImage",
+    "linux-x64-deb": "Linux x64 DEB",
+    "linux-arm64-appimage": "Linux ARM64 AppImage",
+    "linux-arm64-deb": "Linux ARM64 DEB",
+  };
+  let recommendedDownloadKey = "win-x64";
 
   function formatDate(value) {
     const date = new Date(value);
@@ -46,6 +55,21 @@ const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector
     version.textContent = asset.name;
   }
 
+  function updatePrimaryDownload() {
+    const primary = $("[data-primary-download]");
+    const card = document.querySelector(`[data-download="${recommendedDownloadKey}"]`);
+    const cardLink = card ? $("a", card) : null;
+    if (!primary || !cardLink || !cardLink.href || card?.classList.contains("is-unavailable")) return;
+
+    primary.href = cardLink.href;
+    primary.setAttribute("aria-label", `下载 ${downloadLabels[recommendedDownloadKey]}`);
+    primary.replaceChildren(`下载 ${downloadLabels[recommendedDownloadKey]} `);
+    const icon = document.createElement("span");
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = "↓";
+    primary.append(icon);
+  }
+
   function setStoreLinks() {
     const purchaseUrl = String(config.productUrl || config.storeUrl || "").trim();
     const ready = Boolean(config.productUrl);
@@ -78,10 +102,13 @@ const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector
       })),
     };
 
+    const releaseLink = $("#footerRelease");
     $("#releaseVersion").textContent = version;
     $("#releaseDate").textContent = `发布于 ${formatDate(published)}`;
-    $("#releaseLink").href = url;
-    $("#releaseLink").textContent = `${version} 发布说明`;
+    if (releaseLink) {
+      releaseLink.href = url;
+      releaseLink.textContent = `${version} 发布说明`;
+    }
     $("#syncStatus").textContent = source === "live" ? "已同步 GitHub 最新正式版" : "当前使用已验证的发布信息";
 
     setDownload("win-x64", findAsset(normalized, /-win-x64\.exe$/i));
@@ -90,6 +117,7 @@ const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector
     setDownload("linux-x64-deb", findAsset(normalized, /-linux-amd64\.deb$/i));
     setDownload("linux-arm64-appimage", findAsset(normalized, /-linux-arm64\.AppImage$/i));
     setDownload("linux-arm64-deb", findAsset(normalized, /-linux-arm64\.deb$/i));
+    updatePrimaryDownload();
   }
 
   async function detectPlatform() {
@@ -103,11 +131,12 @@ const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector
       }
     } catch { /* 浏览器拒绝 User-Agent Client Hints 时使用基础识别。 */ }
     $("#detectedPlatform").textContent = `${platform} · ${architecture}`;
-    const recommended = platform === "Windows" && architecture === "ARM64" ? "win-arm64"
+    recommendedDownloadKey = platform === "Windows" && architecture === "ARM64" ? "win-arm64"
       : platform === "Linux" && architecture === "ARM64" ? "linux-arm64-appimage"
         : platform === "Linux" ? "linux-x64-appimage" : "win-x64";
-    const card = document.querySelector(`[data-download="${recommended}"]`);
+    const card = document.querySelector(`[data-download="${recommendedDownloadKey}"]`);
     if (card && !card.classList.contains("is-unavailable")) card.classList.add("is-recommended");
+    updatePrimaryDownload();
   }
 
   async function loadRelease() {
@@ -125,7 +154,7 @@ const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector
   function initializeInteractions() {
     $$("[data-copy-release]").forEach((button) => {
       button.addEventListener("click", async () => {
-        const text = $("#releaseLink").href;
+        const text = $("#footerRelease").href;
         try {
           await navigator.clipboard.writeText(text);
           button.textContent = "已复制发布页链接";
@@ -164,5 +193,8 @@ const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector
   setStoreLinks();
   initializeInteractions();
   initializeScrollNavigation();
+  // GitHub API 可以限流或被网络拦截。先用页面内的已验证版本填充链接，
+  // 确保脚本刚运行时以及 API 不可用时，用户都能直接开始下载。
+  applyRelease(config.fallbackRelease, { source: "fallback" });
   Promise.all([loadRelease(), detectPlatform()]);
 })();
