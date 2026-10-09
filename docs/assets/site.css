@@ -131,7 +131,7 @@ h2 { margin-bottom: 16px; font-size: clamp(30px, 3.3vw, 47px); line-height: 1.08
 .device-pill { display: flex; align-items: center; gap: 9px; padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; background: #fcfdfb; color: #4a5e57; font-size: 12px; }
 .device-icon { width: 13px; height: 9px; border: 1.5px solid currentColor; border-radius: 2px; }
 .device-icon::after { display: block; width: 5px; height: 2px; margin: 10px auto 0; background: currentColor; content: ""; }
-.download-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.download-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .download-card { position: relative; display: flex; flex-direction: column; min-height: 250px; padding: 25px; border: 1px solid var(--line); border-radius: 19px; background: var(--card); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
 .download-card:hover { border-color: #adc5b9; box-shadow: 0 15px 32px rgba(36, 62, 50, .09); transform: translateY(-3px); }
 .download-card.primary-download { border-color: #b3d4c6; background: linear-gradient(145deg, #fff, #edf8f2); }

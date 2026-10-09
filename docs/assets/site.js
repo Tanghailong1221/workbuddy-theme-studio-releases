@@ -8,11 +8,8 @@
   const releaseBase = `https://github.com/${config.repository}/releases/latest`;
   const downloadLabels = {
     "win-x64": "Windows x64 安装包",
+    "win-ia32": "Windows x86 安装包",
     "win-arm64": "Windows ARM64 安装包",
-    "linux-x64-appimage": "Linux x64 AppImage",
-    "linux-x64-deb": "Linux x64 DEB",
-    "linux-arm64-appimage": "Linux ARM64 AppImage",
-    "linux-arm64-deb": "Linux ARM64 DEB",
   };
   let recommendedDownloadKey = "win-x64";
 
@@ -50,7 +47,7 @@
     card.classList.remove("is-unavailable");
     link.href = asset.browser_download_url || asset.url;
     link.removeAttribute("aria-disabled");
-    link.textContent = key.startsWith("linux") ? "选择此版本" : "下载 Windows 安装包";
+    link.textContent = "下载 Windows 安装包";
     size.textContent = `${formatSize(asset.size)} · GitHub Releases`;
     version.textContent = asset.name;
   }
@@ -112,28 +109,25 @@
     $("#syncStatus").textContent = source === "live" ? "已同步 GitHub 最新正式版" : "当前使用已验证的发布信息";
 
     setDownload("win-x64", findAsset(normalized, /-win-x64\.exe$/i));
+    setDownload("win-ia32", findAsset(normalized, /-win-ia32\.exe$/i));
     setDownload("win-arm64", findAsset(normalized, /-win-arm64\.exe$/i));
-    setDownload("linux-x64-appimage", findAsset(normalized, /-linux-(?:x86_64|amd64)\.AppImage$/i));
-    setDownload("linux-x64-deb", findAsset(normalized, /-linux-amd64\.deb$/i));
-    setDownload("linux-arm64-appimage", findAsset(normalized, /-linux-arm64\.AppImage$/i));
-    setDownload("linux-arm64-deb", findAsset(normalized, /-linux-arm64\.deb$/i));
     updatePrimaryDownload();
   }
 
   async function detectPlatform() {
     const text = `${navigator.userAgent || ""} ${navigator.platform || ""}`.toLowerCase();
-    const platform = text.includes("windows") ? "Windows" : text.includes("linux") ? "Linux" : text.includes("mac") ? "macOS" : "你的系统";
+    const platform = text.includes("windows") ? "Windows" : "非 Windows 系统";
     let architecture = /arm|aarch64/.test(text) ? "ARM64" : "x64";
     try {
       if (navigator.userAgentData?.getHighEntropyValues) {
         const data = await navigator.userAgentData.getHighEntropyValues(["architecture", "bitness", "platform"]);
-        if (data.platform) architecture = /arm/i.test(data.architecture) ? "ARM64" : (data.bitness === "64" ? "x64" : architecture);
+        if (data.platform) architecture = /arm/i.test(data.architecture) ? "ARM64" : (data.bitness === "32" ? "x86" : "x64");
       }
     } catch { /* 浏览器拒绝 User-Agent Client Hints 时使用基础识别。 */ }
     $("#detectedPlatform").textContent = `${platform} · ${architecture}`;
     recommendedDownloadKey = platform === "Windows" && architecture === "ARM64" ? "win-arm64"
-      : platform === "Linux" && architecture === "ARM64" ? "linux-arm64-appimage"
-        : platform === "Linux" ? "linux-x64-appimage" : "win-x64";
+      : platform === "Windows" && architecture === "x86" ? "win-ia32"
+        : "win-x64";
     const card = document.querySelector(`[data-download="${recommendedDownloadKey}"]`);
     if (card && !card.classList.contains("is-unavailable")) card.classList.add("is-recommended");
     updatePrimaryDownload();
