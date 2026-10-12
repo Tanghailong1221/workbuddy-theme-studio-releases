@@ -9,14 +9,14 @@ window.WBTS_DOWNLOAD_CONFIG = Object.freeze({
     delivery: "preparing",
   },
   fallbackRelease: {
-    tagName: "v0.2.4",
-    name: "WorkBuddy 主题工坊 v0.2.4",
-    publishedAt: "2026-10-09T08:00:00.000Z",
-    url: "https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/tag/v0.2.4",
+    tagName: "v0.2.6",
+    name: "WorkBuddy 主题工坊 v0.2.6",
+    publishedAt: "2026-10-11T14:44:22.000Z",
+    url: "https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/tag/v0.2.6",
     assets: [
-      { name: "WorkBuddy-Theme-Studio-0.2.4-win-x64.exe", browser_download_url: "https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/download/v0.2.4/WorkBuddy-Theme-Studio-0.2.4-win-x64.exe", size: 85882068 },
-      { name: "WorkBuddy-Theme-Studio-0.2.4-win-ia32.exe", browser_download_url: "https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/download/v0.2.4/WorkBuddy-Theme-Studio-0.2.4-win-ia32.exe", size: 80780270 },
-      { name: "WorkBuddy-Theme-Studio-0.2.4-win-arm64.exe", browser_download_url: "https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/download/v0.2.4/WorkBuddy-Theme-Studio-0.2.4-win-arm64.exe", size: 89845136 },
+      { name: "WorkBuddy-Theme-Studio-0.2.6-win-x64.exe", browser_download_url: "https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/download/v0.2.6/WorkBuddy-Theme-Studio-0.2.6-win-x64.exe", size: 85887260 },
+      { name: "WorkBuddy-Theme-Studio-0.2.6-win-ia32.exe", browser_download_url: "https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/download/v0.2.6/WorkBuddy-Theme-Studio-0.2.6-win-ia32.exe", size: 80785380 },
+      { name: "WorkBuddy-Theme-Studio-0.2.6-win-arm64.exe", browser_download_url: "https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/download/v0.2.6/WorkBuddy-Theme-Studio-0.2.6-win-arm64.exe", size: 89850318 },
     ],
   },
 });

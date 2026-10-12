@@ -102,6 +102,8 @@
     const releaseLink = $("#footerRelease");
     $("#releaseVersion").textContent = version;
     $("#releaseDate").textContent = `发布于 ${formatDate(published)}`;
+    const heroVersion = $("#heroVersion");
+    if (heroVersion) heroVersion.textContent = version;
     if (releaseLink) {
       releaseLink.href = url;
       releaseLink.textContent = `${version} 发布说明`;
