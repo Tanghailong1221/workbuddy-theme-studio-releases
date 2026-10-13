@@ -67,26 +67,6 @@
     primary.append(icon);
   }
 
-  function setStoreLinks() {
-    const purchaseUrl = String(config.productUrl || config.storeUrl || "").trim();
-    const ready = Boolean(config.productUrl);
-    $$('[data-store-link]').forEach((link) => {
-      link.href = purchaseUrl;
-      link.textContent = ready ? "购买激活码" : "进入店铺";
-    });
-
-    const activation = $("#activationNotice");
-    const plan = config.plan || {};
-    const deviceText = Number.isInteger(Number(plan.maxDevices)) && Number(plan.maxDevices) > 0
-      ? `每个激活码可绑定 ${Number(plan.maxDevices)} 台设备。`
-      : "可绑定设备数以商品页为准。";
-    if (ready && plan.delivery === "auto") {
-      activation.textContent = `支付成功后自动获得激活码；${deviceText} 换机前请在旧设备点击“解绑本机”，再在新设备激活。`;
-      return;
-    }
-    activation.textContent = `店铺商品正在配置中。${deviceText} 商品上线后会在店铺页说明发码与换机规则。`;
-  }
-
   function applyRelease(release, { source }) {
     const version = release.tag_name || release.tagName || "v—";
     const published = release.published_at || release.publishedAt;
@@ -108,7 +88,7 @@
       releaseLink.href = url;
       releaseLink.textContent = `${version} 发布说明`;
     }
-    $("#syncStatus").textContent = source === "live" ? "已同步 GitHub 最新正式版" : "当前使用已验证的发布信息";
+    $("#syncStatus").textContent = source === "live" ? "已同步 GitHub 最新免费公测版" : "当前使用已验证的发布信息";
 
     setDownload("win-x64", findAsset(normalized, /-win-x64\.exe$/i));
     setDownload("win-ia32", findAsset(normalized, /-win-ia32\.exe$/i));
@@ -186,7 +166,6 @@
     targets.forEach(({ target }) => observer.observe(target));
   }
 
-  setStoreLinks();
   initializeInteractions();
   initializeScrollNavigation();
   // GitHub API 可以限流或被网络拦截。先用页面内的已验证版本填充链接，
