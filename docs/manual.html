@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SkinBuddy 随心换操作手册：连接 WorkBuddy、选择与编辑主题、恢复原生界面、安全模式、更新和问题排查。">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>SkinBuddy 随心换 · 操作手册</title>
+  <link rel="icon" href="./assets/images/skinbuddy-sui-xin-huan-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/images/skinbuddy-sui-xin-huan-icon.png">
+  <link rel="stylesheet" href="./assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#manualContent">跳到手册正文</a>
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="./index.html" aria-label="返回 SkinBuddy 随心换官方下载页">
+      <img class="brand-icon" src="./assets/images/skinbuddy-sui-xin-huan-icon.png" width="40" height="40" alt="">
+      <span>SkinBuddy <b>随心换</b></span>
+    </a>
+    <nav aria-label="手册导航">
+      <a href="#start">开始使用</a>
+      <a href="#themes">主题与编辑</a>
+      <a href="#recovery">恢复与安全</a>
+      <a href="#support">支持与反馈</a>
+    </nav>
+    <a class="header-store" href="./index.html#downloads">官方下载 <span aria-hidden="true">↓</span></a>
+  </header>
+
+  <main id="manualContent" class="manual-page">
+    <section class="manual-hero" aria-labelledby="manualTitle">
+      <p class="eyebrow"><span></span>免费公测版 · v0.3.10 · 2026-10-21 更新</p>
+      <h1 id="manualTitle">SkinBuddy 随心换<br>操作手册</h1>
+      <p>从首次连接、主题选择、保存与分享，到兼容检查、安全模式和问题反馈；所有操作都围绕“先预览、再确认、可恢复”展开。</p>
+      <div class="manual-hero-actions">
+        <a class="button button-primary" href="./index.html#downloads">前往官方下载页 <span aria-hidden="true">↓</span></a>
+        <button type="button" class="button button-quiet" data-copy-qq-group data-qq-group="1131519747">复制 QQ 群号 1131519747</button>
+      </div>
+    </section>
+
+    <aside class="manual-notice"><b>使用边界</b><span>SkinBuddy 是独立第三方工具，不是 WorkBuddy 官方产品。它仅临时注入可回退的渲染样式，不修改 WorkBuddy 安装目录、账号或登录态。</span></aside>
+
+    <div class="manual-layout">
+      <aside class="manual-toc" aria-label="手册目录">
+        <a href="#start">01 开始使用</a>
+        <a href="#themes">02 主题与编辑</a>
+        <a href="#save">03 保存、导入与分享</a>
+        <a href="#recovery">04 兼容、安全与恢复</a>
+        <a href="#troubleshooting">05 常见问题</a>
+        <a href="#support">06 支持与反馈</a>
+      </aside>
+
+      <article class="manual-content">
+        <section id="start">
+          <p class="eyebrow"><span></span>01 / 开始使用</p>
+          <h2>第一次连接 WorkBuddy</h2>
+          <ol>
+            <li>确认正在使用 WorkBuddy 个人版 Windows 桌面客户端，并先保存未发送的消息、资料库编辑和任务表单。</li>
+            <li>启动 SkinBuddy。顶部“启动自检”会检查 WorkBuddy 安装位置、运行状态和主题连接。</li>
+            <li>未启动时点击“启动 WorkBuddy”；已运行但未连接时，按提示确认“重启并连接”。</li>
+            <li>看到连接和兼容状态可继续后，再选择预设或进入编辑页。预览不会改变 WorkBuddy，只有点击“应用到 WorkBuddy”才会写入当前窗口。</li>
+          </ol>
+          <div class="manual-callout"><b>先检测，再应用</b><span>新版 WorkBuddy 未通过兼容检查时，不会被自动当作完全兼容。请先检查预览，只在确认后进行一次可回退试用。</span></div>
+        </section>
+
+        <section id="themes">
+          <p class="eyebrow"><span></span>02 / 主题与编辑</p>
+          <h2>选择、预览并微调主题</h2>
+          <p>在“预设”页选择主题卡片后，可按色调、是否带背景、收藏和关键词进一步筛选。需要改配色、标题或背景图时，进入“正在编辑”页；左侧预览会实时反映当前修改。</p>
+          <dl class="manual-definition-list">
+            <div><dt>强调色</dt><dd>用于主按钮、选中态和重点提示。应与底色保持明显对比。</dd></div>
+            <div><dt>底色与文字色</dt><dd>决定大面积背景和可读性。深底配浅字，浅底配深字，并在实际 WorkBuddy 页面确认。</dd></div>
+            <div><dt>背景图</dt><dd>优先选择对话区域留白、来源清晰的静态图片；避免超高分辨率、动图和来源不明的文件。</dd></div>
+            <div><dt>动态背景</dt><dd>可在设置中随时暂停；系统开启“减少动态效果”时会自动关闭。</dd></div>
+          </dl>
+        </section>
+
+        <section id="save">
+          <p class="eyebrow"><span></span>03 / 保存、导入与分享</p>
+          <h2>保留自己的常用配置</h2>
+          <p>确认效果后点击“保存主题”，保存、导入或另存的主题都会进入“我的主题”。在“导入、导出与分享”中可以复制分享码、导出完整 <code>theme.json</code>、粘贴分享码或从文件导入。</p>
+          <ul>
+            <li>分享码不包含背景图；需要完整迁移时请导出 <code>theme.json</code>。</li>
+            <li>Windows 本地数据位于 <code>%LOCALAPPDATA%\WBThemeStudio</code>。迁移电脑或重装前，可导出重要主题或备份该目录。</li>
+            <li>删除主题只会删除本机主题记录，不会删除 WorkBuddy 的聊天、文件、项目或账号数据。</li>
+          </ul>
+        </section>
+
+        <section id="recovery">
+          <p class="eyebrow"><span></span>04 / 兼容、安全与恢复</p>
+          <h2>页面异常时，优先恢复原生界面</h2>
+          <p>“兼容性中心”会检查 WorkBuddy 版本、调试端口和页面结构。它是保护机制，不是错误页。</p>
+          <dl class="manual-definition-list">
+            <div><dt>已验证兼容</dt><dd>可正常应用主题和开启自动恢复。</dd></div>
+            <div><dt>需要确认试用</dt><dd>先保存工作，只做一次可回退试用；异常时立刻还原。</dd></div>
+            <div><dt>安全模式</dt><dd>暂停注入和自动重放，让 WorkBuddy 保持原生界面，适合排查明显错位或可用性问题。</dd></div>
+            <div><dt>一键回滚</dt><dd>回到上一次成功应用的主题或原生状态。</dd></div>
+          </dl>
+          <div class="manual-callout"><b>出现白屏、严重卡顿或关键操作不可用</b><span>依次执行“还原原生”→“进入安全模式”→“重新检测”。不要反复强制应用未验证版本，也不要修改 WorkBuddy 的 app.asar 或安装文件。</span></div>
+        </section>
+
+        <section id="troubleshooting">
+          <p class="eyebrow"><span></span>05 / 常见问题</p>
+          <h2>快速排查</h2>
+          <dl class="manual-faq-list">
+            <div><dt>点击应用后没有变化</dt><dd>查看顶部连接状态，确认未处于安全模式；必要时重启并连接 WorkBuddy 后再次应用。</dd></div>
+            <div><dt>WorkBuddy 更新后出现局部样式异常</dt><dd>先还原原生并进入安全模式，复制诊断信息后再反馈。不要下载来源不明的“补丁”。</dd></div>
+            <div><dt>启动后没有自动换肤</dt><dd>检查“自动恢复上次主题”是否开启，并确认不是从已固定的旧任务栏图标启动。</dd></div>
+            <div><dt>主题导入失败</dt><dd>仅使用分享码或合法的 <code>theme.json</code>。检查颜色是否为 <code>#RRGGBB</code>，并确认分享码没有截断。</dd></div>
+          </dl>
+        </section>
+
+        <section id="support">
+          <p class="eyebrow"><span></span>06 / 支持与反馈</p>
+          <h2>带上关键信息，定位会更快</h2>
+          <p>反馈前可在软件“设置 → 帮助与条款”中复制诊断信息。请说明 SkinBuddy 与 WorkBuddy 版本、主题名称、问题页面、完整复现步骤，并仅提供不含隐私内容的截图。</p>
+          <div class="manual-support-card">
+            <div><b>联系作者</b><span>作者 QQ 交流群：<code>1131519747</code></span><small>点击右侧按钮复制群号后，在 QQ 客户端中搜索或粘贴加入。</small></div>
+            <button type="button" class="button button-primary" data-copy-qq-group data-qq-group="1131519747">复制群号</button>
+          </div>
+          <p>如需提交可复现的问题，也可前往 <a href="https://gitee.com/tang-hl1221/work-buddy-theme/issues/new" target="_blank" rel="noreferrer">问题反馈页 ↗</a>。发送前请删除密码、验证码、聊天正文和客户资料。</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer><div><a class="brand" href="./index.html"><img class="brand-icon" src="./assets/images/skinbuddy-sui-xin-huan-icon.png" width="40" height="40" alt=""><span>SkinBuddy <b>随心换</b></span></a><p>一个更适合长期工作的 WorkBuddy 界面。</p></div><div><a href="./index.html#downloads">官方下载页</a><a href="https://github.com/Tanghailong1221/workbuddy-theme-studio-releases/releases/latest" target="_blank" rel="noreferrer">全部发布版本</a></div></footer>
+  <script>
+    document.querySelectorAll('[data-copy-qq-group]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const group = String(button.dataset.qqGroup || '').trim();
+        if (!/^\d{5,15}$/.test(group)) return;
+        try { await navigator.clipboard.writeText(group); button.textContent = '群号已复制'; }
+        catch { button.textContent = `请复制群号 ${group}`; }
+        window.setTimeout(() => { button.textContent = button.closest('.manual-support-card') ? '复制群号' : `复制 QQ 群号 ${group}`; }, 2200);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -140,6 +140,19 @@
         window.setTimeout(() => { button.textContent = "复制发布页链接"; }, 1800);
       });
     });
+    $$("[data-copy-qq-group]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const group = String(button.dataset.qqGroup || "").trim();
+        if (!/^\d{5,15}$/.test(group)) return;
+        try {
+          await navigator.clipboard.writeText(group);
+          button.textContent = `群号 ${group} 已复制`;
+        } catch {
+          button.textContent = `请复制群号 ${group}`;
+        }
+        window.setTimeout(() => { button.textContent = `复制 QQ 群号 ${group}`; }, 2200);
+      });
+    });
   }
 
   function initializeScrollNavigation() {
