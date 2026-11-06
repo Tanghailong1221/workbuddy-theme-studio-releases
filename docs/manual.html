@@ -28,7 +28,7 @@
 
   <main id="manualContent" class="manual-page">
     <section class="manual-hero" aria-labelledby="manualTitle">
-      <p class="eyebrow"><span></span>免费公测版 · v0.3.11 · 2026-10-22 更新</p>
+      <p class="eyebrow"><span></span>免费公测版 · v0.3.12 · 2026-11-06 更新</p>
       <h1 id="manualTitle">SkinBuddy 随心换<br>操作手册</h1>
       <p>从首次连接、主题选择、保存与分享，到兼容检查、安全模式和问题反馈；所有操作都围绕“先预览、再确认、可恢复”展开。</p>
       <div class="manual-hero-actions">
@@ -88,7 +88,8 @@
         <section id="recovery">
           <p class="eyebrow"><span></span>04 / 兼容、安全与恢复</p>
           <h2>页面异常时，优先恢复原生界面</h2>
-          <p>“兼容性中心”会检查 WorkBuddy 版本、调试端口和页面结构。它是保护机制，不是错误页。</p>
+          <p>“兼容性中心”会检查 WorkBuddy 版本、调试端口和页面结构。主题规则由 SkinBuddy 独立维护；只要客户端更新保留原有组件语义和 ARIA 状态，现有菜单、按钮、文字、图标和弹窗就继续读取当前主题颜色。新增或改名的界面需要补充能力模块并巡检。</p>
+          <div class="manual-callout"><b>当前验证范围</b><span>WorkBuddy 5.9.3 已对九个能力模块及左侧导航进行真实页面巡检，当前回退规则未发现样式遗漏；该版本仍未列入正式验证版本。未来版本先完成兼容检查，未验证版本不会自动重放主题，需确认后才可进行单次可回退试用。</span></div>
           <dl class="manual-definition-list">
             <div><dt>已验证兼容</dt><dd>可正常应用主题和开启自动恢复。</dd></div>
             <div><dt>需要确认试用</dt><dd>先保存工作，只做一次可回退试用；异常时立刻还原。</dd></div>
@@ -104,6 +105,7 @@
           <dl class="manual-faq-list">
             <div><dt>点击应用后没有变化</dt><dd>查看顶部连接状态，确认未处于安全模式；必要时重启并连接 WorkBuddy 后再次应用。</dd></div>
             <div><dt>WorkBuddy 更新后出现局部样式异常</dt><dd>先还原原生并进入安全模式，复制诊断信息后再反馈。不要下载来源不明的“补丁”。</dd></div>
+            <div><dt>新版保留页面结构但换肤是否会失效</dt><dd>现有元素通过主题变量、语义选择器和 ARIA 状态匹配；这些锚点不变时会继续跟随主题。新增加或重命名的控件需要补充规则并验证。</dd></div>
             <div><dt>启动后没有自动换肤</dt><dd>检查“自动恢复上次主题”是否开启，并确认不是从已固定的旧任务栏图标启动。</dd></div>
             <div><dt>主题导入失败</dt><dd>仅使用分享码或合法的 <code>theme.json</code>。检查颜色是否为 <code>#RRGGBB</code>，并确认分享码没有截断。</dd></div>
           </dl>
